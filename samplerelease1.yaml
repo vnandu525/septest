@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <your-acr-name>.azurecr.io/simple-nginx:latest  # Replace with your ACR and image tag
+        image: septestcontainerrepo.azurecr.io/simple-nginx:latest  # Replace with your ACR and image tag
         ports:
         - containerPort: 80
 ---
