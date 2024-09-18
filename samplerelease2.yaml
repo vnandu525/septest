@@ -1,0 +1,21 @@
+trigger:
+- none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Kubernetes@1
+  displayName: 'Set context to AKS'
+  inputs:
+    kubernetesServiceEndpoint: '<your-aks-service-connection>'
+    command: 'set'
+    arguments: 'context --cluster <aks-cluster-name>'
+
+- task: Kubernetes@1
+  displayName: 'Deploy to AKS'
+  inputs:
+    kubernetesServiceEndpoint: '<your-aks-service-connection>'
+    command: 'apply'
+    useConfigurationFile: true
+    configuration: 'aks-deployment.yaml'
